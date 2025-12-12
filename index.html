@@ -16,3 +16,123 @@
   <script src="practice_functions.js"></script>-->
   ;<script src="mini_project.js"></script>
 </html>
+
+<!doctype html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Piedra • Papel • Tijeras</title>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Configuración de Tailwind para modo oscuro por clase
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: '#2563eb',
+                dark: '#1d4ed8'
+              }
+            }
+          }
+        }
+      };
+    </script>
+
+    <style>
+      /* Animación sutil para resultados */
+      .fade-in {
+        animation: fadein 250ms ease-out;
+      }
+      @keyframes fadein {
+        from { opacity: 0; transform: translateY(4px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body class="h-full bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div id="app" class="min-h-full">
+      <header class="border-b border-gray-200 dark:border-gray-800">
+        <div class="mx-auto max-w-4xl px-4 py-4 flex items-center justify-between">
+          <h1 class="text-xl font-semibold">Piedra • Papel • Tijeras</h1>
+          <button id="toggleThemeBtn"
+            class="rounded-md border border-gray-300 dark:border-gray-700 px-3 py-1.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            aria-label="Alternar modo claro/oscuro">
+            Modo oscuro
+          </button>
+        </div>
+      </header>
+
+      <main class="mx-auto max-w-4xl px-4 py-6 space-y-6">
+        <!-- Controles de juego -->
+        <section class="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
+          <h2 class="text-lg font-medium mb-3">Elige tu jugada</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <button data-choice="piedra"
+              class="choice-btn flex items-center justify-center gap-2 rounded-md border border-gray-300 dark:border-gray-700 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+              <span>🪨</span><span>Piedra</span>
+            </button>
+            <button data-choice="papel"
+              class="choice-btn flex items-center justify-center gap-2 rounded-md border border-gray-300 dark:border-gray-700 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+              <span>📄</span><span>Papel</span>
+            </button>
+            <button data-choice="tijeras"
+              class="choice-btn flex items-center justify-center gap-2 rounded-md border border-gray-300 dark:border-gray-700 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+              <span>✂️</span><span>Tijeras</span>
+            </button>
+          </div>
+
+          <div id="lastResult" class="mt-4 text-sm text-gray-700 dark:text-gray-300"></div>
+        </section>
+
+        <!-- Estadísticas -->
+        <section class="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-lg font-medium">Estadísticas</h2>
+            <button id="resetStatsBtn"
+              class="rounded-md bg-red-600 text-white px-3 py-1.5 text-sm hover:bg-red-700 transition">
+              Reiniciar estadísticas
+            </button>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="rounded-md border border-gray-200 dark:border-gray-800 p-3">
+              <div class="text-xs text-gray-500 dark:text-gray-400">Rondas</div>
+              <div id="statTotal" class="text-2xl font-semibold">0</div>
+            </div>
+            <div class="rounded-md border border-gray-200 dark:border-gray-800 p-3">
+              <div class="text-xs text-gray-500 dark:text-gray-400">Victorias usuario</div>
+              <div id="statUserWins" class="text-2xl font-semibold text-emerald-600 dark:text-emerald-400">0</div>
+            </div>
+            <div class="rounded-md border border-gray-200 dark:border-gray-800 p-3">
+              <div class="text-xs text-gray-500 dark:text-gray-400">Victorias PC</div>
+              <div id="statCpuWins" class="text-2xl font-semibold text-rose-600 dark:text-rose-400">0</div>
+            </div>
+            <div class="rounded-md border border-gray-200 dark:border-gray-800 p-3">
+              <div class="text-xs text-gray-500 dark:text-gray-400">Empates</div>
+              <div id="statDraws" class="text-2xl font-semibold text-amber-600 dark:text-amber-400">0</div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <h3 class="text-sm font-medium mb-2">Últimas 5 rondas</h3>
+            <ul id="historyList" class="space-y-2"></ul>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-gray-200 dark:border-gray-800">
+        <div class="mx-auto max-w-4xl px-4 py-4 text-xs text-gray-500 dark:text-gray-400">
+          Persistencia con localStorage • Documentado con JSDoc • 2025/12/12
+        </div>
+      </footer>
+    </div>
+
+    <!-- Script principal -->
+    <script src="./main.js"></script>
+  </body>
+</html>

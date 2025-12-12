@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rock • Paper • Scissors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: "class" };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <header class="bg-blue-600 dark:bg-blue-800 text-white py-3">
+      <div class="max-w-3xl mx-auto flex justify-between px-4">
+        <div>
+          <i class="fa-solid fa-user"></i> User:
+          <span id="statUserWins">0</span>
+        </div>
+        <div>
+          <i class="fa-solid fa-robot"></i> PC: <span id="statCpuWins">0</span>
+        </div>
+      </div>
+    </header>
+    <main class="max-w-3xl mx-auto px-4 py-6 space-y-6 text-center">
+      <section>
+        <h2 class="mb-4 font-semibold">Choose your move</h2>
+        <div class="flex justify-center gap-4">
+          <button
+            data-choice="rock"
+            class="choice-btn bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded transition hover:bg-gray-300 dark:hover:bg-gray-600"
+          >
+          <i class="fa-solid fa-hand-fist"></i> Rock
+          </button>
+          <button
+            data-choice="paper"
+            class="choice-btn bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded transition hover:bg-gray-300 dark:hover:bg-gray-600"
+          >
+            <i class="fa-solid fa-hand"></i> Paper
+          </button>
+          <button
+            data-choice="scissors"
+            class="choice-btn bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded transition hover:bg-gray-300 dark:hover:bg-gray-600"
+          >
+            <i class="fa-solid fa-hand-scissors"></i> Scissors 
+          </button>
+        </div>
+        <div id="lastResult" class="mt-4 text-sm"></div>
+      </section>
+
+      <section
+        class="max-w-xs mx-auto text-sm my-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow"
+      >
+        <h3 class="font-bold mb-2 border-b pb-1">Game Summary</h3>
+        <ul class="text-left space-y-1">
+          <li class="flex justify-between">
+            Total Rounds:
+            <span id="statTotalRounds" class="font-semibold">0</span>
+          </li>
+          <li class="flex justify-between">
+            Draws: <span id="statDraws" class="font-semibold">0</span>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3 class="mb-2 font-semibold">Last 5 rounds</h3>
+        <ul id="historyList" class="space-y-2 text-sm"></ul>
+      </section>
+
+      <section class="space-x-4">
+        <button
+          id="resetStatsBtn"
+          class="bg-red-600 text-white px-3 py-2 rounded transition hover:bg-red-700"
+        >
+          Restore
+        </button>
+        <button
+          id="toggleThemeBtn"
+          class="bg-gray-300 dark:bg-gray-700 px-3 py-2 rounded transition hover:bg-gray-400 dark:hover:bg-gray-600"
+        >
+          Dark mode
+        </button>
+      </section>
+    </main>
+    <footer class="text-center text-xs text-gray-500 dark:text-gray-400 py-4">
+    Rock, Paper, Scissors game • 2025/12/12 • Created by Neymar
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>

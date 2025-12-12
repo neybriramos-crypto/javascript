@@ -13,3 +13,12 @@ import {greet, PI, Circle, Users} from "./export.js";
 
 //using the imported function
 console.log(greet("World")); //output: Hello, World
+console.log(`Value of PI: ${PI}`); //output: Value of PI: 3.14159
+
+const myCircle = new Circle(5);
+console.log(`Area of circle with radius 5: ${myCircle.area()}`); //output: Area of circle with radius 5: 78.53975 
+
+console.log("Users List:");
+Users.forEach(user => {
+  console.log(`ID: ${user.id}, Name: ${user.name}`);
+}); 

@@ -28,7 +28,7 @@ export class Circle{
 }
 
 //exporting a data structure
-export const users = [
+export const Users = [
   {id: 1, name:'Alice'},
   {id: 2, name:'Alice'},
   {id: 3, name:'Alice'},
